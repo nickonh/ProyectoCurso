@@ -1,0 +1,46 @@
+﻿@using ProyectoCurso.Models
+@model List<ClienteCLS>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@Html.ActionLink("Agregar","Agregar","Cliente", null, new { @class= "btn btn-primary"})
+
+<table class="table table-bordered table-hover">
+
+    <thead class=" thead-dark">
+
+        <tr>
+
+            <td>@Html.LabelFor(p => Model[0].iddcliente)</td>
+            <td>@Html.LabelFor(p => Model[0].nombre)</td>
+            <td>@Html.LabelFor(p => Model[0].appaterno)</td>
+            <td>@Html.LabelFor(p => Model[0].apmaterno)</td>
+            <td>@Html.LabelFor(p => Model[0].telefonofijo)</td>
+            <td>@Html.LabelFor(p => Model[0].telefonocelular)
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @foreach(var item in Model) 
+        {
+            <tr>
+
+                <td>@item.iddcliente</td>
+                <td>@item.nombre</td>
+                <td>@item.appaterno</td>
+                <td>@item.appaterno</td>
+                <td>@item.telefonofijo</td>
+                <td>@item.telefonocelular</td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+
