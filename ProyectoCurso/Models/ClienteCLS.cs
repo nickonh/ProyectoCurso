@@ -8,7 +8,7 @@ namespace ProyectoCurso.Models
 {
     public class ClienteCLS
     {
-        [Display(Name = "ID Cliente")]
+        [Display(Name = "Id Cliente")]
         public int iddcliente { get; set; }
 
         [Display(Name = "Nombre Cliente")]
