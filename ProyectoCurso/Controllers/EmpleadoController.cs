@@ -20,6 +20,7 @@ namespace ProyectoCurso.Controllers
                                on empleado.IIDTIPOUSUARIO equals tipousuario.IIDTIPOUSUARIO
                                join tipocontrato in bd.TipoUsuario
                                on empleado.IIDTIPOCONTRATO equals tipocontrato.IIDTIPOUSUARIO
+                               where empleado.BHABILITADO == 1
                                //Formamos la lista a mostrar.
                                select new EmpleadoCLS
                                {

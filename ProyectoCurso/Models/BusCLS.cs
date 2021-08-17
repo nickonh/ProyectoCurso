@@ -17,6 +17,10 @@ namespace ProyectoCurso.Models
         [Display(Name = "Tipo Bus")]
         [Required]
         public int iidtipobus { get; set; }
+        [Display(Name = "Patente")]
+        [Required]
+        [StringLength(100, ErrorMessage = "Longitud Maxima 100 Caracteres")]
+        public string placa { get; set; }
         [Display(Name = "Fecha Compra")]
         [Required]
         [DataType(DataType.Date)]

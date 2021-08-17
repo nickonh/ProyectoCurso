@@ -1,0 +1,39 @@
+﻿@using ProyectoCurso.Models
+@model List<BusCLS>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table table-bordered table-hover">
+
+    <thead class="thead-dark">
+        <tr>
+
+            <td>@Html.LabelFor(p => Model[0].iidbus)</td>
+            <td>@Html.LabelFor(p => Model[0].placa)</td>
+            <td>@Html.LabelFor(p => Model[0].nombremodelo)</td>
+            <td>@Html.LabelFor(p => Model[0].nombretipobus)</td>
+            <td>@Html.LabelFor(p => Model[0].nombresucursal)</td>
+
+        </tr>
+        
+    </thead>
+
+    <tbody>
+        
+       @foreach (var item in Model)
+                
+        {
+            <tr>
+                <td>@item.iidbus</td>
+                <td>@item.placa</td>
+                <td>@item.nombremodelo</td>
+                <td>@item.nombretipobus</td>
+                <td>@item.nombresucursal</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
