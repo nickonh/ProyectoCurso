@@ -30,9 +30,8 @@ namespace ProyectoCurso.Controllers
                                    nombretipousuario= tipousuario.NOMBRE,
                                    nombretipocontrato= tipocontrato.NOMBRE
                                }).ToList();
-
             }
-                return View();
+                return View(listaEmpleado);
         }
     }
 }

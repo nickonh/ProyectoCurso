@@ -40,8 +40,9 @@ namespace ProyectoCurso.Models
         public int bhabilitado { get; set; }
 
         //--------------------Propiedades Adicionales--------------------
-
+        [Display(Name = "Tipo Contrato")]
         public string nombretipocontrato { get; set; }
+        [Display(Name = "Tipo Usuario")]
         public string nombretipousuario { get; set; }
     }
 }
