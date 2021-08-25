@@ -26,7 +26,7 @@ namespace ProyectoCurso.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime fechacompra { get; set; }
-        [Display(Name = "Nombre Modelo")]
+        [Display(Name = "Modelo")]
         [Required]
         public int idmodelo { get; set; }
         [Display(Name = "Numero Filas")]
@@ -56,7 +56,7 @@ namespace ProyectoCurso.Models
         public string nombresucursal { get; set; }
         [Display(Name = "Tipo Bus")]
         public string nombretipobus { get; set; }
-        [Display(Name = "Nombre Modelo")]
+        [Display(Name = "Modelo")]
         public string nombremodelo { get; set; }
 
     }
