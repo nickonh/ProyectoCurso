@@ -40,25 +40,25 @@ namespace ProyectoCurso.Controllers
         //---------------------FUNCIONES DEL GET---------------------
 
         /*ESTA FUNCION LLENA UNA listasexo CUYO CONTENIDO ESTA EN LA BD, CONSTRUYE UNA PEQUENIA Tabla PARA SELECCINAR EL SEXO*/
-        List<SelectListItem> listasexo;
-        private void llenarsexo()
+        List<SelectListItem> listaSexo;
+        private void llenarSexo()
         {
             using (var db = new BDPasajeEntities())
             {
-                listasexo = (from sexo in db.Sexo
+                listaSexo = (from sexo in db.Sexo
                              where sexo.BHABILITADO == 1
                              select new SelectListItem
                              {
                                  Text = sexo.NOMBRE,
                                  Value = sexo.IIDSEXO.ToString()
                              }).ToList();
-                listasexo.Insert(0, new SelectListItem { Text = "--Seleccione--", Value = "" });
+                listaSexo.Insert(0, new SelectListItem { Text = "--Seleccione--", Value = "" });
             }
         }
         public ActionResult Agregar()
         {
-            llenarsexo();
-            ViewBag.lista = listasexo;
+            llenarSexo();
+            ViewBag.lista = listaSexo;
 
             return View();
         }
@@ -72,8 +72,8 @@ namespace ProyectoCurso.Controllers
             //Validacion; EL COMBOBOX DEBE SER LLENADDO SINO SE CAE
             if (!ModelState.IsValid) 
             {
-                llenarsexo();
-                ViewBag.lista = listasexo;
+                llenarSexo();
+                ViewBag.lista = listaSexo;
                 return View(oClienteCLS);
             }
 

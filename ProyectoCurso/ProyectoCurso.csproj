@@ -1,6 +1,6 @@
 ﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -46,10 +46,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Runtime.Serialization" />
@@ -93,17 +96,24 @@
     <Reference Include="System.Web.Mvc">
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
     <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Models\Model1.Context.tt">
@@ -118,6 +128,8 @@
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
@@ -129,14 +141,20 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
-    <Content Include="Scripts\bootstrap.min.js.map" />
-    <Content Include="Scripts\bootstrap.js.map" />
-    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
-    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
     <Content Include="Content\bootstrap-reboot.min.css.map" />
     <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Content\bootstrap\_variables.scss" />
@@ -150,24 +168,22 @@
     <Content Include="Content\bootstrap\_root.scss" />
     <Content Include="Content\bootstrap\_reboot.scss" />
     <Content Include="Content\bootstrap\_progress.scss" />
-    <Content Include="Content\bootstrap\_print.scss" />
     <Content Include="Content\bootstrap\_popover.scss" />
+    <Content Include="Content\bootstrap\_placeholders.scss" />
     <Content Include="Content\bootstrap\_pagination.scss" />
+    <Content Include="Content\bootstrap\_offcanvas.scss" />
     <Content Include="Content\bootstrap\_navbar.scss" />
     <Content Include="Content\bootstrap\_nav.scss" />
     <Content Include="Content\bootstrap\_modal.scss" />
     <Content Include="Content\bootstrap\_mixins.scss" />
-    <Content Include="Content\bootstrap\_media.scss" />
     <Content Include="Content\bootstrap\_list-group.scss" />
-    <Content Include="Content\bootstrap\_jumbotron.scss" />
-    <Content Include="Content\bootstrap\_input-group.scss" />
     <Content Include="Content\bootstrap\_images.scss" />
+    <Content Include="Content\bootstrap\_helpers.scss" />
     <Content Include="Content\bootstrap\_grid.scss" />
     <Content Include="Content\bootstrap\_functions.scss" />
     <Content Include="Content\bootstrap\_forms.scss" />
     <Content Include="Content\bootstrap\_dropdown.scss" />
-    <Content Include="Content\bootstrap\_custom-forms.scss" />
-    <Content Include="Content\bootstrap\_code.scss" />
+    <Content Include="Content\bootstrap\_containers.scss" />
     <Content Include="Content\bootstrap\_close.scss" />
     <Content Include="Content\bootstrap\_carousel.scss" />
     <Content Include="Content\bootstrap\_card.scss" />
@@ -176,68 +192,65 @@
     <Content Include="Content\bootstrap\_breadcrumb.scss" />
     <Content Include="Content\bootstrap\_badge.scss" />
     <Content Include="Content\bootstrap\_alert.scss" />
+    <Content Include="Content\bootstrap\_accordion.scss" />
     <Content Include="Content\bootstrap\vendor\_rfs.scss" />
-    <Content Include="Content\bootstrap\utilities\_visibility.scss" />
-    <Content Include="Content\bootstrap\utilities\_text.scss" />
-    <Content Include="Content\bootstrap\utilities\_stretched-link.scss" />
-    <Content Include="Content\bootstrap\utilities\_spacing.scss" />
-    <Content Include="Content\bootstrap\utilities\_sizing.scss" />
-    <Content Include="Content\bootstrap\utilities\_shadows.scss" />
-    <Content Include="Content\bootstrap\utilities\_screenreaders.scss" />
-    <Content Include="Content\bootstrap\utilities\_position.scss" />
-    <Content Include="Content\bootstrap\utilities\_overflow.scss" />
-    <Content Include="Content\bootstrap\utilities\_interactions.scss" />
-    <Content Include="Content\bootstrap\utilities\_float.scss" />
-    <Content Include="Content\bootstrap\utilities\_flex.scss" />
-    <Content Include="Content\bootstrap\utilities\_embed.scss" />
-    <Content Include="Content\bootstrap\utilities\_display.scss" />
-    <Content Include="Content\bootstrap\utilities\_clearfix.scss" />
-    <Content Include="Content\bootstrap\utilities\_borders.scss" />
-    <Content Include="Content\bootstrap\utilities\_background.scss" />
-    <Content Include="Content\bootstrap\utilities\_align.scss" />
-    <Content Include="Content\bootstrap\mixins\_visibility.scss" />
+    <Content Include="Content\bootstrap\utilities\_api.scss" />
+    <Content Include="Content\bootstrap\mixins\_visually-hidden.scss" />
+    <Content Include="Content\bootstrap\mixins\_utilities.scss" />
     <Content Include="Content\bootstrap\mixins\_transition.scss" />
     <Content Include="Content\bootstrap\mixins\_text-truncate.scss" />
-    <Content Include="Content\bootstrap\mixins\_text-hide.scss" />
-    <Content Include="Content\bootstrap\mixins\_text-emphasis.scss" />
-    <Content Include="Content\bootstrap\mixins\_table-row.scss" />
-    <Content Include="Content\bootstrap\mixins\_size.scss" />
-    <Content Include="Content\bootstrap\mixins\_screen-reader.scss" />
+    <Content Include="Content\bootstrap\mixins\_table-variants.scss" />
     <Content Include="Content\bootstrap\mixins\_resize.scss" />
     <Content Include="Content\bootstrap\mixins\_reset-text.scss" />
     <Content Include="Content\bootstrap\mixins\_pagination.scss" />
-    <Content Include="Content\bootstrap\mixins\_nav-divider.scss" />
     <Content Include="Content\bootstrap\mixins\_lists.scss" />
     <Content Include="Content\bootstrap\mixins\_list-group.scss" />
     <Content Include="Content\bootstrap\mixins\_image.scss" />
-    <Content Include="Content\bootstrap\mixins\_hover.scss" />
     <Content Include="Content\bootstrap\mixins\_grid.scss" />
-    <Content Include="Content\bootstrap\mixins\_grid-framework.scss" />
     <Content Include="Content\bootstrap\mixins\_gradients.scss" />
     <Content Include="Content\bootstrap\mixins\_forms.scss" />
-    <Content Include="Content\bootstrap\mixins\_float.scss" />
     <Content Include="Content\bootstrap\mixins\_deprecate.scss" />
+    <Content Include="Content\bootstrap\mixins\_container.scss" />
+    <Content Include="Content\bootstrap\mixins\_color-scheme.scss" />
     <Content Include="Content\bootstrap\mixins\_clearfix.scss" />
     <Content Include="Content\bootstrap\mixins\_caret.scss" />
     <Content Include="Content\bootstrap\mixins\_buttons.scss" />
     <Content Include="Content\bootstrap\mixins\_breakpoints.scss" />
     <Content Include="Content\bootstrap\mixins\_box-shadow.scss" />
     <Content Include="Content\bootstrap\mixins\_border-radius.scss" />
-    <Content Include="Content\bootstrap\mixins\_badge.scss" />
-    <Content Include="Content\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="Content\bootstrap\mixins\_backdrop.scss" />
     <Content Include="Content\bootstrap\mixins\_alert.scss" />
+    <Content Include="Content\bootstrap\helpers\_vr.scss" />
+    <Content Include="Content\bootstrap\helpers\_visually-hidden.scss" />
+    <Content Include="Content\bootstrap\helpers\_text-truncation.scss" />
+    <Content Include="Content\bootstrap\helpers\_stretched-link.scss" />
+    <Content Include="Content\bootstrap\helpers\_stacks.scss" />
+    <Content Include="Content\bootstrap\helpers\_ratio.scss" />
+    <Content Include="Content\bootstrap\helpers\_position.scss" />
+    <Content Include="Content\bootstrap\helpers\_colored-links.scss" />
+    <Content Include="Content\bootstrap\helpers\_clearfix.scss" />
+    <Content Include="Content\bootstrap\forms\_validation.scss" />
+    <Content Include="Content\bootstrap\forms\_labels.scss" />
+    <Content Include="Content\bootstrap\forms\_input-group.scss" />
+    <Content Include="Content\bootstrap\forms\_form-text.scss" />
+    <Content Include="Content\bootstrap\forms\_form-select.scss" />
+    <Content Include="Content\bootstrap\forms\_form-range.scss" />
+    <Content Include="Content\bootstrap\forms\_form-control.scss" />
+    <Content Include="Content\bootstrap\forms\_form-check.scss" />
+    <Content Include="Content\bootstrap\forms\_floating-labels.scss" />
     <Content Include="Content\bootstrap\bootstrap.scss" />
+    <Content Include="Content\bootstrap\bootstrap-utilities.scss" />
     <Content Include="Content\bootstrap\bootstrap-reboot.scss" />
     <Content Include="Content\bootstrap\bootstrap-grid.scss" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
-    <Content Include="Scripts\jquery-3.0.0.js" />
-    <Content Include="Scripts\jquery-3.0.0.min.js" />
-    <Content Include="Scripts\jquery-3.0.0.slim.js" />
-    <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
+    <None Include="Scripts\jquery-3.6.0.intellisense.js" />
+    <Content Include="Scripts\jquery-3.6.0.js" />
+    <Content Include="Scripts\jquery-3.6.0.min.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
@@ -437,8 +450,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Marca\Index.cshtml" />
-    <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
-    <Content Include="Scripts\jquery-3.0.0.min.map" />
     <Content Include="Views\Cliente\Index.cshtml" />
     <Content Include="Views\Marca\Agregar.cshtml" />
     <Content Include="Views\Sucursal\Agregar.cshtml" />
@@ -446,6 +457,15 @@
     <Content Include="Views\Empleado\Index.cshtml" />
     <Content Include="Views\Bus\Index.cshtml" />
     <Content Include="Views\Viaje\Index.cshtml" />
+    <Content Include="Views\Empleado\Agregar.cshtml" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.6.0.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -493,8 +513,12 @@
     <PropertyGroup>
       <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
   </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
