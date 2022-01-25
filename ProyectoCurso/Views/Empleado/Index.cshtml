@@ -4,6 +4,7 @@
     ViewBag.Title = "Index";
 }
 
+@Html.ActionLink("Agregar", "Agregar", "Empleado", null, new { @class = "btn btn-primary" })
 <h2>Index</h2>
 
 <table class="table table-bordered  table-hover">
@@ -11,30 +12,30 @@
     <thead class="thead-dark">
         <tr>
 
-            <td>@Html.LabelFor(p=> Model[0].iddempleado)</td>
-            <td>@Html.LabelFor(p=> Model[0].nombre)</td>
-            <td>@Html.LabelFor(p=> Model[0].appaterno)</td>
-            <td>@Html.LabelFor(p=> Model[0].apmaterno)</td>
-            <td>@Html.LabelFor(p=> Model[0].nombretipousuario)</td>
-            <td>@Html.LabelFor(p=> Model[0].nombretipocontrato)</td>
+            <td>@Html.LabelFor(p => Model[0].iddempleado)</td>
+            <td>@Html.LabelFor(p => Model[0].nombre)</td>
+            <td>@Html.LabelFor(p => Model[0].appaterno)</td>
+            <td>@Html.LabelFor(p => Model[0].apmaterno)</td>
+            <td>@Html.LabelFor(p => Model[0].nombretipousuario)</td>
+            <td>@Html.LabelFor(p => Model[0].nombretipocontrato)</td>
 
         </tr>
 
-    </thead> 
+    </thead>
 
-   <tbody>
+    <tbody>
 
-       @foreach(var item in Model)
-       {
-           <tr>
+        @foreach (var item in Model)
+        {
+            <tr>
                 <td>@item.iddempleado</td>
                 <td>@item.nombre</td>
                 <td>@item.appaterno</td>
                 <td>@item.apmaterno</td>
                 <td>@item.nombretipousuario</td>
                 <td>@item.nombretipocontrato</td>
-           </tr>
-       }
+            </tr>
+        }
 
-   </tbody>
+    </tbody>
 </table>

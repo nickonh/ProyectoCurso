@@ -1,8 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\ProyectoCurso"
+    "\\ProyectoCurso",
+    "\\ProyectoCurso\\Controllers",
+    "\\ProyectoCurso\\Views",
+    "\\ProyectoCurso\\Views\\Empleado"
   ],
   "SelectedNode": "\\ProyectoCurso.sln",
-  "PreviewInSolutionExplorer": false
+  "PreviewInSolutionExplorer": true
 }

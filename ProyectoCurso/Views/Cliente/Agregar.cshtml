@@ -2,7 +2,7 @@
 @model ClienteCLS
 @{
     ViewBag.Title = "Agregar";
-    List<SelectListItem> listasexo = (List<SelectListItem>)ViewBag.lista;
+    List<SelectListItem> listaSexo = (List<SelectListItem>)ViewBag.lista;
 }
 
 <h2>Agregar</h2>
@@ -38,7 +38,7 @@
             </div>
             <div>
                 @Html.LabelFor(p => p.iddsexo)
-                @Html.DropDownList("iddsexo", listasexo, null, new { @class = "form-control"})
+                @Html.DropDownList("iddsexo", listaSexo, null, new { @class = "form-control"})
                 @Html.ValidationMessage("iddsexo", new { @class = "text-danger" })
             </div>
             <div>

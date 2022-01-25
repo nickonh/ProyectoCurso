@@ -1,0 +1,20 @@
+﻿@using ProyectoCurso.Models
+@model EmpleadoCLS
+@{
+    ViewBag.Title = "Agregar";
+    List<SelectListItem> LSexo = (List<SelectListItem>)ViewBag.LSexo;
+    List<SelectListItem> TContrato = (List<SelectListItem>)ViewBag.TContrato;
+    List<SelectListItem> TUsuario = (List<SelectListItem>)ViewBag.TUsuario;
+}
+
+<h2>Agregar</h2>
+
+@using (Html.BeginForm("Agregar","Empleado", FormMethod.Post))
+{
+<div>
+    @Html.LabelFor(p=>p.nombre)
+    @Html.TextBoxFor(p=>p.nombre,new {@class="form-control"})
+    @Html.ValidationMessage("nombre",new{@class="text-danger"})
+</div>
+}
+
