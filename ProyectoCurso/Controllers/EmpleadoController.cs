@@ -101,5 +101,31 @@ namespace ProyectoCurso.Controllers
             ListarCombos();
             return View();
         }
+        [HttpPost]
+        public ActionResult Agregar(EmpleadoCLS oEmpleadoCLS) 
+        {
+            if (!ModelState.IsValid)
+            {
+                ListarCombos();
+                return View(oEmpleadoCLS);
+            }
+        using(var bd=new BDPasajeEntities()) 
+            {
+                Empleado oEmpleado = new Empleado();
+                oEmpleado.NOMBRE = oEmpleadoCLS.nombre;
+                oEmpleado.APPATERNO = oEmpleadoCLS.appaterno;
+                oEmpleado.APMATERNO = oEmpleadoCLS.apmaterno;
+                oEmpleado.FECHACONTRATO = oEmpleadoCLS.fechacontrato;
+                oEmpleado.SUELDO = oEmpleadoCLS.sueldo;
+                oEmpleado.IIDTIPOUSUARIO = oEmpleadoCLS.iddtipousuario;
+                oEmpleado.IIDTIPOCONTRATO = oEmpleadoCLS.iddtipocontrato;
+                oEmpleado.IIDSEXO = oEmpleadoCLS.iddsexo;
+                oEmpleado.BHABILITADO = 1;
+
+                bd.Empleado.Add(oEmpleado);
+                bd.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
