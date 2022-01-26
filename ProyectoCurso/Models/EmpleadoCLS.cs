@@ -39,6 +39,12 @@ namespace ProyectoCurso.Models
         public int iddsexo { get; set; }
         public int bhabilitado { get; set; }
 
+        [Display(Name = "Sueldo")]
+        [Required]
+        [Range(0, 100000, ErrorMessage = "Fuera de rango")]
+        public double sueldo { get; set; }
+        
+
         //--------------------Propiedades Adicionales--------------------
         [Display(Name = "Tipo Contrato")]
         public string nombretipocontrato { get; set; }
