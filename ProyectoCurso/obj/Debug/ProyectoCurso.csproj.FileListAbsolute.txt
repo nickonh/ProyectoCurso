@@ -225,3 +225,11 @@ C:\Users\kleim\Source\Repos\nickonh\ProyectoCurso\ProyectoCurso\bin\roslyn\Syste
 C:\Users\kleim\Source\Repos\nickonh\ProyectoCurso\ProyectoCurso\bin\roslyn\System.Memory.dll
 C:\Users\kleim\Source\Repos\nickonh\ProyectoCurso\ProyectoCurso\bin\roslyn\System.Numerics.Vectors.dll
 C:\Users\kleim\Source\Repos\nickonh\ProyectoCurso\ProyectoCurso\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\kleim\Source\Repos\nickonh\ProyectoCurso\ProyectoCurso\bin\Antlr3.Runtime.dll
+C:\Users\kleim\Source\Repos\nickonh\ProyectoCurso\ProyectoCurso\bin\Newtonsoft.Json.dll
+C:\Users\kleim\Source\Repos\nickonh\ProyectoCurso\ProyectoCurso\bin\System.Web.Optimization.dll
+C:\Users\kleim\Source\Repos\nickonh\ProyectoCurso\ProyectoCurso\bin\WebActivatorEx.dll
+C:\Users\kleim\Source\Repos\nickonh\ProyectoCurso\ProyectoCurso\bin\WebGrease.dll
+C:\Users\kleim\Source\Repos\nickonh\ProyectoCurso\ProyectoCurso\bin\Antlr3.Runtime.pdb
+C:\Users\kleim\Source\Repos\nickonh\ProyectoCurso\ProyectoCurso\bin\Newtonsoft.Json.xml
+C:\Users\kleim\Source\Repos\nickonh\ProyectoCurso\ProyectoCurso\bin\System.Web.Optimization.xml

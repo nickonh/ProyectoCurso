@@ -29,6 +29,19 @@ namespace ProyectoCurso.Controllers
              
         }
 
+        public ActionResult Editar(int id) 
+        {
+            MarcaCLS oMarcaCLS = new MarcaCLS();
+            using (var bd = new BDPasajeEntities()) 
+            {
+                Marca oMarca = bd.Marca.Where(p => p.IIDMARCA.Equals(id)).First();
+                oMarcaCLS.iidmarca = oMarca.IIDMARCA;
+                oMarcaCLS.nombre = oMarca.NOMBRE;
+                oMarcaCLS.descripcion = oMarca.DESCRIPCION;
+            }
+                return View(oMarcaCLS);
+        }
+
         //POST: Marca Vista
         public ActionResult Agregar()
         {
@@ -59,6 +72,8 @@ namespace ProyectoCurso.Controllers
 
             return RedirectToAction("Index");
         }
+
+
         
     }
 }
