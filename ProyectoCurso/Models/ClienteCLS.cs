@@ -35,6 +35,7 @@ namespace ProyectoCurso.Models
         [Display(Name = "Direccion")]
         [StringLength(200, ErrorMessage = "Longitud Maxima 200 Caracteres")]
         [Required]
+        [DataType(DataType.MultilineText)]
         public string direccion { get; set; }
 
         [Display(Name = "Sexo")]
