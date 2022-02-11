@@ -127,5 +127,26 @@ namespace ProyectoCurso.Controllers
             }
             return RedirectToAction("Index");
         }
+        public ActionResult Editar(int id) 
+        {
+            ListarCombos();
+            EmpleadoCLS oEmpleadoCLS = new EmpleadoCLS();
+            using (var bd = new BDPasajeEntities()) 
+            {
+                Empleado oEmpleado = bd.Empleado.Where(p => p.IIDEMPLEADO.Equals(id)).First();
+                oEmpleadoCLS.iddempleado = oEmpleado.IIDEMPLEADO;
+                oEmpleadoCLS.nombre = oEmpleado.NOMBRE;
+                oEmpleadoCLS.appaterno = oEmpleado.APPATERNO;
+                oEmpleadoCLS.apmaterno = oEmpleado.APMATERNO;
+                oEmpleadoCLS.fechacontrato = (DateTime) oEmpleado.FECHACONTRATO;
+                oEmpleadoCLS.sueldo = (int) oEmpleado.SUELDO;
+                oEmpleadoCLS.iddtipousuario = (int) oEmpleado.IIDTIPOUSUARIO;
+                oEmpleadoCLS.iddtipocontrato = (int) oEmpleado.IIDTIPOCONTRATO;
+                oEmpleadoCLS.iddsexo = (int) oEmpleado.IIDSEXO;
+                
+
+            }
+            return View(oEmpleadoCLS);
+        }
     }
 }
