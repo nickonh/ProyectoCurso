@@ -101,5 +101,52 @@ namespace ProyectoCurso.Controllers
             ListarCombos();
             return View();
         }
+        [HttpPost]
+        public ActionResult Agregar(EmpleadoCLS oEmpleadoCLS) 
+        {
+            if (!ModelState.IsValid)
+            {
+                ListarCombos();
+                return View(oEmpleadoCLS);
+            }
+        using(var bd=new BDPasajeEntities()) 
+            {
+                Empleado oEmpleado = new Empleado();
+                oEmpleado.NOMBRE = oEmpleadoCLS.nombre;
+                oEmpleado.APPATERNO = oEmpleadoCLS.appaterno;
+                oEmpleado.APMATERNO = oEmpleadoCLS.apmaterno;
+                oEmpleado.FECHACONTRATO = oEmpleadoCLS.fechacontrato;
+                oEmpleado.SUELDO = oEmpleadoCLS.sueldo;
+                oEmpleado.IIDTIPOUSUARIO = oEmpleadoCLS.iddtipousuario;
+                oEmpleado.IIDTIPOCONTRATO = oEmpleadoCLS.iddtipocontrato;
+                oEmpleado.IIDSEXO = oEmpleadoCLS.iddsexo;
+                oEmpleado.BHABILITADO = 1;
+
+                bd.Empleado.Add(oEmpleado);
+                bd.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+        public ActionResult Editar(int id) 
+        {
+            ListarCombos();
+            EmpleadoCLS oEmpleadoCLS = new EmpleadoCLS();
+            using (var bd = new BDPasajeEntities()) 
+            {
+                Empleado oEmpleado = bd.Empleado.Where(p => p.IIDEMPLEADO.Equals(id)).First();
+                oEmpleadoCLS.iddempleado = oEmpleado.IIDEMPLEADO;
+                oEmpleadoCLS.nombre = oEmpleado.NOMBRE;
+                oEmpleadoCLS.appaterno = oEmpleado.APPATERNO;
+                oEmpleadoCLS.apmaterno = oEmpleado.APMATERNO;
+                oEmpleadoCLS.fechacontrato = (DateTime) oEmpleado.FECHACONTRATO;
+                oEmpleadoCLS.sueldo = (int) oEmpleado.SUELDO;
+                oEmpleadoCLS.iddtipousuario = (int) oEmpleado.IIDTIPOUSUARIO;
+                oEmpleadoCLS.iddtipocontrato = (int) oEmpleado.IIDTIPOCONTRATO;
+                oEmpleadoCLS.iddsexo = (int) oEmpleado.IIDSEXO;
+                
+
+            }
+            return View(oEmpleadoCLS);
+        }
     }
 }

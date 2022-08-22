@@ -42,7 +42,7 @@ namespace ProyectoCurso.Models
         [Display(Name = "Sueldo")]
         [Required]
         [Range(0, 100000, ErrorMessage = "Fuera de rango")]
-        public double sueldo { get; set; }
+        public decimal sueldo { get; set; }
         
 
         //--------------------Propiedades Adicionales--------------------

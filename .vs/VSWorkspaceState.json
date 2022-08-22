@@ -4,7 +4,8 @@
     "\\ProyectoCurso",
     "\\ProyectoCurso\\Controllers",
     "\\ProyectoCurso\\Views",
-    "\\ProyectoCurso\\Views\\Empleado"
+    "\\ProyectoCurso\\Views\\Empleado",
+    "\\ProyectoCurso\\Views\\Sucursal"
   ],
   "SelectedNode": "\\ProyectoCurso.sln",
   "PreviewInSolutionExplorer": true

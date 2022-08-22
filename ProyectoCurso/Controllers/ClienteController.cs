@@ -36,6 +36,28 @@ namespace ProyectoCurso.Controllers
             return View(listaCliente);
         }
 
+        public ActionResult Editar(int id) 
+        {
+            ClienteCLS oClienteCLS = new ClienteCLS();
+            using (var bd = new BDPasajeEntities()) 
+            {
+                llenarSexo();
+                ViewBag.lista = listaSexo;
+
+                Cliente oCliente = bd.Cliente.Where(p => p.IIDCLIENTE.Equals(id)).First();
+                oClienteCLS.iddcliente = oCliente.IIDCLIENTE;
+                oClienteCLS.nombre = oCliente.NOMBRE;
+                oClienteCLS.appaterno = oCliente.APPATERNO;
+                oClienteCLS.apmaterno = oCliente.APMATERNO;
+                oClienteCLS.iddsexo = (int) oCliente.IIDSEXO;
+                oClienteCLS.direccion = oCliente.DIRECCION;
+                oClienteCLS.telefonofijo = oCliente.TELEFONOFIJO;
+                oClienteCLS.telefonocelular = oCliente.TELEFONOCELULAR;
+                oClienteCLS.email = oCliente.EMAIL;
+            }
+                return View(oClienteCLS);
+        }
+
         //---------------------GET: De Sexo a Cliente---------------------
         //---------------------FUNCIONES DEL GET---------------------
 
