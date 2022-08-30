@@ -2,10 +2,7 @@
   "ExpandedNodes": [
     "",
     "\\ProyectoCurso",
-    "\\ProyectoCurso\\Controllers",
-    "\\ProyectoCurso\\Views",
-    "\\ProyectoCurso\\Views\\Empleado",
-    "\\ProyectoCurso\\Views\\Sucursal"
+    "\\ProyectoCurso\\Properties"
   ],
   "SelectedNode": "\\ProyectoCurso.sln",
   "PreviewInSolutionExplorer": true

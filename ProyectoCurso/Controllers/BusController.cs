@@ -42,6 +42,60 @@ namespace ProyectoCurso.Controllers
             ListarCombo();
             return View();
         }
+        
+        [HttpPost]
+        public ActionResult Agregar(BusCLS oBusCLS) 
+        {
+            if (!ModelState.IsValid) 
+            {
+                return View(oBusCLS);
+            }
+            using (var bd= new BDPasajeEntities()) 
+            {
+                Bus oBus = new Bus();
+                oBus.IIDSUCURSAL = oBusCLS.iidsucursal;
+                oBus.IIDTIPOBUS = oBusCLS.iidtipobus;
+                oBus.PLACA = oBusCLS.placa;
+                oBus.FECHACOMPRA = oBusCLS.fechacompra;
+                oBus.IIDMODELO = oBusCLS.idmodelo;
+                oBus.NUMEROFILAS = oBusCLS.numerofilas;
+                oBus.NUMEROCOLUMNAS = oBusCLS.numerocolumnas;
+                oBus.DESCRIPCION = oBusCLS.descripcion;
+                oBus.OBSERVACION = oBusCLS.observacion;
+                oBus.IIDMARCA = oBusCLS.iidmarca;
+                oBus.BHABILITADO = 1;
+
+                bd.Bus.Add(oBus);
+                bd.SaveChanges();
+
+            }
+                return RedirectToAction("Index");
+        }
+
+        public ActionResult Editar(int id)
+        {
+            BusCLS oBusCLS = new BusCLS();
+            using (var bd = new BDPasajeEntities()) 
+            {
+                Bus obus = bd.Bus.Where(p => p.IIDBUS.Equals(id)).First();
+                oBusCLS.iidbus = obus.IIDBUS;
+                oBusCLS.iidsucursal = (int)obus.IIDSUCURSAL;
+                oBusCLS.iidtipobus = (int)obus.IIDTIPOBUS;
+                oBusCLS.placa = obus.PLACA;
+                oBusCLS.fechacompra = (DateTime)obus.FECHACOMPRA;
+                oBusCLS.idmodelo = (int)obus.IIDMODELO;
+                oBusCLS.numerofilas = (int)obus.NUMEROFILAS;
+                oBusCLS.numerocolumnas = (int)obus.NUMEROCOLUMNAS;
+                oBusCLS.descripcion = obus.DESCRIPCION;
+                oBusCLS.observacion = obus.OBSERVACION;
+                oBusCLS.iidmarca = (int)obus.IIDMARCA;
+
+
+            }
+                ListarCombo();
+                return View(oBusCLS);
+        }
+
         //-----Llenado de los ComboBox-----
         public void llenarTipoBus() 
         {
