@@ -1,0 +1,3 @@
+# ProyectoCurso
+Proyecto enfocado en el aprendizaje de las herramientas utilizadas para backend.
+Actualizando readme...
